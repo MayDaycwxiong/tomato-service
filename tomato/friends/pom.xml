@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>tomato-parent</artifactId>
+        <groupId>com.tomato</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../tomato-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>friends</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>friends-api</module>
+        <module>friends-biz</module>
+        <module>friends-common</module>
+        <module>friends-consumer</module>
+        <module>friends-dao</module>
+        <module>friends-dto</module>
+        <module>friends-extbean</module>
+        <module>friends-manager</module>
+        <module>friends-provider</module>
+        <module>friends-test</module>
+    </modules>
+
+
+</project>
