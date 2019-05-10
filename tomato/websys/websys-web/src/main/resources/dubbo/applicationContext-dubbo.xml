@@ -15,4 +15,5 @@
 	<dubbo:application name="dubbo_consumer"></dubbo:application>
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"></dubbo:registry>
 	<dubbo:reference interface="com.tomato.users.api.user.LoginApi" id="loginApi"></dubbo:reference>
+	<dubbo:reference interface="com.tomato.users.api.user.UpdateBaseInfoApi" id="updateBaseInfoApi"></dubbo:reference>
 </beans>
