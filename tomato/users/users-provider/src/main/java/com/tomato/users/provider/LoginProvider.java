@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 public class LoginProvider implements LoginApi {
 
     @Autowired
-    LoginService loginService;
+    private LoginService loginService;
 
     @Override
     public UserDTO login(UserPO userPO) {

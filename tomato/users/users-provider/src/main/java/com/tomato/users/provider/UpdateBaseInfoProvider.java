@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class UpdateBaseInfoProvider implements UpdateBaseInfoApi {
 
     @Autowired
-    UpdateBaseInfoService updateBaseInfoService;
+    private UpdateBaseInfoService updateBaseInfoService;
 
     @Override
     public UserDTO updateBaseInfo(UserPO userPO) {

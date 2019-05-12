@@ -17,4 +17,5 @@
 	<dubbo:service interface="com.tomato.users.api.user.LoginApi" ref="loginProvider"></dubbo:service>
 	<dubbo:service interface="com.tomato.users.api.user.UpdateBaseInfoApi" ref="updateBaseInfoProvider"></dubbo:service>
 	<dubbo:service interface="com.tomato.users.api.user.SelectAllUserInfoApi" ref="selectAllUserInfoProvider"></dubbo:service>
+	<dubbo:service interface="com.tomato.users.api.user.RegisterApi" ref="registerProvider"></dubbo:service>
 </beans>

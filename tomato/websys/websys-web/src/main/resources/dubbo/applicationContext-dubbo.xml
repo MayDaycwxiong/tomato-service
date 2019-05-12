@@ -13,8 +13,10 @@
 	default-lazy-init="false" >
 
 	<dubbo:application name="dubbo_consumer"></dubbo:application>
+	<!--消费用户模块接口 users-->
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"></dubbo:registry>
 	<dubbo:reference interface="com.tomato.users.api.user.LoginApi" id="loginApi"></dubbo:reference>
 	<dubbo:reference interface="com.tomato.users.api.user.UpdateBaseInfoApi" id="updateBaseInfoApi"></dubbo:reference>
 	<dubbo:reference interface="com.tomato.users.api.user.SelectAllUserInfoApi" id="selectAllUserInfoApi"></dubbo:reference>
+	<dubbo:reference interface="com.tomato.users.api.user.RegisterApi" id="registerApi"></dubbo:reference>
 </beans>
