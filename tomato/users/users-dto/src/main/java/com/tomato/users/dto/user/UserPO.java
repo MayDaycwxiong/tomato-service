@@ -53,6 +53,18 @@ public class UserPO implements Serializable {
      */
     @ApiModelProperty(value = "用户出生年月日", required = true)
     private Date userbirthday;
+    /**
+     * 接受用
+     */
+    private String birthday;
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
 
     /**
      * 用户年龄

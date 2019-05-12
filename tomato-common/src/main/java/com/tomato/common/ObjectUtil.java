@@ -21,9 +21,6 @@ public class ObjectUtil {
         return false;
     }
     public static boolean isNotNull(Object object){
-        if(object!=null){
-           return true;
-        }
-        return false;
+        return !isNull(object);
     }
 }

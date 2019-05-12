@@ -13,6 +13,13 @@
     <packaging>war</packaging>
 
     <dependencies>
+        <!--self-->
+        <dependency>
+            <groupId>com.tomato</groupId>
+            <artifactId>websys-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--users-->
         <dependency>
             <groupId>com.tomato</groupId>
             <artifactId>users-api</artifactId>
