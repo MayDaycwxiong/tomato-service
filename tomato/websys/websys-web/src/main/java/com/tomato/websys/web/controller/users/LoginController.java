@@ -1,4 +1,4 @@
-package com.tomato.websys.web.controller.login;
+package com.tomato.websys.web.controller.users;
 
 import com.tomato.common.ObjectUtil;
 import com.tomato.users.api.user.LoginApi;
@@ -7,7 +7,6 @@ import com.tomato.users.dto.user.UserPO;
 import com.tomato.websys.common.ParamCheckUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -19,4 +19,7 @@
 	<dubbo:reference interface="com.tomato.users.api.user.UpdateBaseInfoApi" id="updateBaseInfoApi"></dubbo:reference>
 	<dubbo:reference interface="com.tomato.users.api.user.SelectAllUserInfoApi" id="selectAllUserInfoApi"></dubbo:reference>
 	<dubbo:reference interface="com.tomato.users.api.user.RegisterApi" id="registerApi"></dubbo:reference>
+	<!--消费好友模块接口 friends-->
+	<dubbo:reference interface="com.tomato.friends.api.GetServerInfoApi" id="getServerInfoApi"></dubbo:reference>
+
 </beans>

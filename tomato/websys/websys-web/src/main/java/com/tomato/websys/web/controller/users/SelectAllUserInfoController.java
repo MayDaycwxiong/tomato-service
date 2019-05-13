@@ -1,4 +1,4 @@
-package com.tomato.websys.web.controller.login;
+package com.tomato.websys.web.controller.users;
 
 import com.tomato.common.ObjectUtil;
 import com.tomato.users.api.user.SelectAllUserInfoApi;
