@@ -1,4 +1,4 @@
-package com.tomato.friends.biz.netty;
+package com.tomato.friends.netty.nettymain.netty;
 
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -6,6 +6,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
+
 /**
 * @Description:    接收状态触发器
 * @Author:         cuiwx

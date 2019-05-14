@@ -1,4 +1,4 @@
-package com.tomato.friends.biz.netty;
+package com.tomato.friends.netty.nettymain.netty;
 
 import java.util.ResourceBundle;
 
