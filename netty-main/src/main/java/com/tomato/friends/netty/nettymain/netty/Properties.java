@@ -22,16 +22,16 @@ public class Properties {
     public static int writerIdleTime;
     public static int allIdleTime;
     static {
-        if(!"".equals("netty_port")){
+        if(!"".equals(bundle.getString("netty_port"))){
             nettyPort=Integer.parseInt(bundle.getString("netty_port"));
         }
-        if(!"".equals("readerIdleTime")){
+        if(!"".equals(bundle.getString("readerIdleTime"))){
             readerIdleTime=Integer.parseInt(bundle.getString("readerIdleTime"));
         }
-        if(!"".equals("writerIdleTime")){
+        if(!"".equals(bundle.getString("writerIdleTime"))){
             writerIdleTime=Integer.parseInt(bundle.getString("writerIdleTime"));
         }
-        if(!"".equals("allIdleTime")){
+        if(!"".equals(bundle.getString("allIdleTime"))){
             allIdleTime=Integer.parseInt(bundle.getString("allIdleTime"));
         }
     }
