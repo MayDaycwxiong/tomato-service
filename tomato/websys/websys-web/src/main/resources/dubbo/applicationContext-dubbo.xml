@@ -22,5 +22,7 @@
 	<!--消费好友模块接口 friends-->
 	<dubbo:reference interface="com.tomato.friends.api.GetServerInfoApi" id="getServerInfoApi"></dubbo:reference>
 	<dubbo:reference interface="com.tomato.friends.api.GetFriendIpAddrApi" id="getFriendIpAddrApi"></dubbo:reference>
- 	<!--消费共享中心模块接口 sharings-->
+	<dubbo:reference interface="com.tomato.friends.api.InitFriendGroupInfoApi" id="initFriendGroupInfoApi"></dubbo:reference>
+	<dubbo:reference interface="com.tomato.friends.api.AddFriendApi" id="addFriendApi"></dubbo:reference>
+	<!--消费共享中心模块接口 sharings-->
 </beans>

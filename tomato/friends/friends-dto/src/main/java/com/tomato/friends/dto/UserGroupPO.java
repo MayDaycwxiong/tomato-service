@@ -11,6 +11,24 @@ import java.io.Serializable;
 @ToString
 public class UserGroupPO implements Serializable {
     /**
+     * 构造函数
+     * usergroupid 为自增长
+     * usergroupflag 默认为 0
+     */
+    public UserGroupPO(String userid,String usergroupname){
+        this.userid=userid;
+        this.usergroupname=usergroupname;
+        this.usergroupflag="0";
+    }
+
+    /**
+     * 默认构造函数，不然在websys中进行参数绑定的时候会报以下错误
+     *  Failed to instantiate [com.tomato.friends.dto.UserGroupPO]:
+     *  No default constructor found; nested exception is java.lang.NoSuchMethodException:
+     *  com.tomato.friends.dto.UserGroupPO.<init>()
+     */
+    public UserGroupPO(){}
+    /**
      * 用户组Id
      * userGroupId
      */
