@@ -15,5 +15,6 @@
 	<dubbo:application name="tomato-sharings"></dubbo:application>
 	<dubbo:protocol id="dubbo" name="dubbo" host="127.0.0.1" port="20870" threadpool="cached"></dubbo:protocol>
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" check="false" subscribe="false" register=""></dubbo:registry>
-	<dubbo:service interface="" ref="loginProvider"></dubbo:service>
+	<dubbo:service interface="com.tomato.sharings.api.AddActivityApi" ref="addActivityProvider"></dubbo:service>
+	<dubbo:service interface="com.tomato.sharings.api.GetFriendsActivitiesApi" ref="getFriendsActivitiesProvider"></dubbo:service>
 </beans>

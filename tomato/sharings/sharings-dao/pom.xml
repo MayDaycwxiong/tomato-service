@@ -13,6 +13,13 @@
 
     <!-- 添加依賴 -->
     <dependencies>
+
+        <dependency>
+            <groupId>com.tomato</groupId>
+            <artifactId>sharings-dto</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
