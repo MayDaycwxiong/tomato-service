@@ -138,8 +138,9 @@
             u.userRole as userrole
         from
             tb_usergroup ug
-        left join tb_friendsofusergroup ugf on ugf.userId = #{userid,jdbcType=VARCHAR}
-          and ug.userGroupId = ugf.userGroupId
+        left join tb_friendsofusergroup ugf on
+          ug.userGroupId = ugf.userGroupId
         left join tb_user u on u.userId = ugf.friend
+        where ug.userid = #{userid,jdbcType=VARCHAR}
   </select>
 </mapper>

@@ -11,14 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
-* @Description:    添加好友Service
-* @Author:         cuiwx
-* @CreateDate:     2019/5/17 13:06
-* @UpdateUser:     cuiwx
-* @UpdateDate:     2019/5/17 13:06
-* @UpdateRemark:   修改内容
-* @Version:        1.0
-*/
+ * @Description: 添加好友Service
+ * @Author: cuiwx
+ * @CreateDate: 2019/5/17 13:06
+ * @UpdateUser: cuiwx
+ * @UpdateDate: 2019/5/17 13:06
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
+ */
 @Slf4j
 @Service
 public class AddFriendServiceImpl implements AddFriendService {
@@ -28,32 +28,45 @@ public class AddFriendServiceImpl implements AddFriendService {
 
     @Override
     public FriendsOfUserGroupDTO addFriend(FriendsOfUserGroupPO friendsOfUserGroupPO) {
-        FriendsOfUserGroupDTO friendsOfUserGroupDTO=new FriendsOfUserGroupDTO();
-        int insert=0;
-        if(ObjectUtil.isNotNull(friendsOfUserGroupPO)&& StringUtil.isNotEmpty(friendsOfUserGroupPO.getUserid())
-        &&StringUtil.isNotEmpty(friendsOfUserGroupPO.getFriend())&&ObjectUtil.isNotNull(friendsOfUserGroupPO.getUsergroupid())){
-            insert=addFriendManager.addFriend(friendsOfUserGroupPO);
-            log.info("添加好友记录数为{}",insert);
+        FriendsOfUserGroupDTO friendsOfUserGroupDTO = new FriendsOfUserGroupDTO();
+        int insert = 0;
+        if (ObjectUtil.isNotNull(friendsOfUserGroupPO) && StringUtil.isNotEmpty(friendsOfUserGroupPO.getUserid())
+                && StringUtil.isNotEmpty(friendsOfUserGroupPO.getFriend()) && ObjectUtil.isNotNull(friendsOfUserGroupPO.getUsergroupid())) {
+            insert = addFriendManager.exsist(friendsOfUserGroupPO);
+            if (insert == 1) {
+                log.info("tb_user表中存在好友{}的信息，接下来进行添加好友操作", friendsOfUserGroupPO.getFriend());
+                insert = addFriendManager.addFriend(friendsOfUserGroupPO);
+                log.info("添加好友记录数为{}", insert);
+            } else if (insert != 1) {
+                log.info("tb_user表中不存在好友{}的信息", friendsOfUserGroupPO.getFriend());
+                insert = -1;
+            }
         }
-        dealData(friendsOfUserGroupDTO,friendsOfUserGroupPO,insert);
+        dealData(friendsOfUserGroupDTO, friendsOfUserGroupPO, insert);
         return friendsOfUserGroupDTO;
     }
+
     /**
-    * 方法实现说明    处理服务器返回的数据
-    * @author      cuiwx
-    * @date        2019/5/17 13:24
-    */
+     * 方法实现说明    处理服务器返回的数据
+     *
+     * @author cuiwx
+     * @date 2019/5/17 13:24
+     */
     private void dealData(FriendsOfUserGroupDTO friendsOfUserGroupDTO, FriendsOfUserGroupPO friendsOfUserGroupPO, int insert) {
         // 不能进行添加好友操作
-        if(ObjectUtil.isNull(friendsOfUserGroupPO)|| StringUtil.isEmpty(friendsOfUserGroupPO.getUserid())
-                ||StringUtil.isEmpty(friendsOfUserGroupPO.getFriend())||ObjectUtil.isNull(friendsOfUserGroupPO.getUsergroupid())||insert<1){
+        if (ObjectUtil.isNull(friendsOfUserGroupPO) || StringUtil.isEmpty(friendsOfUserGroupPO.getUserid())
+                || StringUtil.isEmpty(friendsOfUserGroupPO.getFriend()) || ObjectUtil.isNull(friendsOfUserGroupPO.getUsergroupid()) || insert == 0) {
             friendsOfUserGroupDTO.setFriendsOfUserGroupPO(friendsOfUserGroupPO);
             friendsOfUserGroupDTO.setFlag("1");
             log.info("添加好友失败");
-        }else if(insert==1){
+        } else if (insert == 1) {
             friendsOfUserGroupDTO.setFriendsOfUserGroupPO(friendsOfUserGroupPO);
             friendsOfUserGroupDTO.setFlag("0");
             log.info("添加好友成功");
+        } else if (insert == -1) {
+            friendsOfUserGroupDTO.setFriendsOfUserGroupPO(friendsOfUserGroupPO);
+            friendsOfUserGroupDTO.setFlag("-1");
+            log.info("待添加的好友信息不存在，添加失败");
         }
     }
 }

@@ -31,7 +31,7 @@ public class AddFriendController {
     private AddFriendApi addFriendApi;
 
     @ApiOperation(value = "添加好友")
-    @PostMapping("addFriend.pub")
+    @PostMapping("/addFriend.pub")
     public FriendsOfUserGroupDTO addFriend(FriendsOfUserGroupPO friendsOfUserGroupPO){
         if(ObjectUtil.isNull(friendsOfUserGroupPO)){
             log.info("Object is null");

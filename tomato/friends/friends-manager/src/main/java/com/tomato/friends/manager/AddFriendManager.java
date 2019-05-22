@@ -1,5 +1,6 @@
 package com.tomato.friends.manager;
 
+import com.tomato.common.ObjectUtil;
 import com.tomato.friends.dao.FriendsOfUserGroupPOMapper;
 import com.tomato.friends.dto.FriendsOfUserGroupPO;
 import lombok.extern.slf4j.Slf4j;
@@ -25,5 +26,11 @@ public class AddFriendManager {
     public int addFriend(FriendsOfUserGroupPO friendsOfUserGroupPO){
         log.info("待插入的数据为{}",friendsOfUserGroupPO.toString());
         return friendsOfUserGroupPOMapper.insertSelective(friendsOfUserGroupPO);
+    }
+
+    public int exsist(FriendsOfUserGroupPO friendsOfUserGroupPO){
+        String friendId=friendsOfUserGroupPO.getFriend();
+        log.info("判断tb_user表中是否有好友信息，当前好友Id为{}",friendId);
+        return friendsOfUserGroupPOMapper.existsFriends(friendId);
     }
 }

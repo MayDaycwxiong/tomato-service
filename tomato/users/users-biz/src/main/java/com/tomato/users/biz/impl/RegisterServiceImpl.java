@@ -36,6 +36,9 @@ public class RegisterServiceImpl implements RegisterService {
             returnUserPO.setUserid(userid);
             dealData(returnUserPO, userDTO, userPO);
         }else if(StringUtil.isNotEmpty(userPO.getUserid())&&StringUtil.isNotEmpty(userPO.getUserpassword())){
+            // 初始化好友昵称(userName)与好友头像(userIcon)
+            userPO.setUsername(userPO.getUserid());
+            userPO.setUsericon("http://129.204.108.13:8888/group1/M00/00/00/rBAAB1zfjauAHPeyAADLkL5q2aY836.png");
             int register=registerManager.register(userPO);
             dealData(register,userDTO);
         }

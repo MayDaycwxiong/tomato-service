@@ -5,6 +5,7 @@ import com.tomato.friends.biz.GetFriendIpAddrService;
 import com.tomato.friends.dto.IptablesDTO;
 import com.tomato.friends.dto.IptablesPO;
 import com.tomato.friends.manager.GetFriendIpAddrManager;
+import javafx.beans.binding.ObjectExpression;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,11 @@ public class GetFriendIpAddrServiceImpl implements GetFriendIpAddrService {
             log.info("根据ServerIP和ClientSelfIP查询到的对象为{}",returnIptablesPO.toString());
             beforeSelect(returnIptablesPO,iptablesPO);
             returnIptablesPO=getFriendIpAddrManager.getFriendIpAddr(returnIptablesPO);
-            log.info("最终返回的对象为{}",returnIptablesPO.toString());
+            if(ObjectUtil.isNotNull(returnIptablesPO)){
+                log.info("最终返回的对象为{}",returnIptablesPO.toString());
+            }else{
+                log.info("该网关下没有好友对应的信息");
+            }
         }
         detailData(returnIptablesPO,iptablesDTO,iptablesPO);
         return iptablesDTO;
@@ -66,7 +71,11 @@ public class GetFriendIpAddrServiceImpl implements GetFriendIpAddrService {
     @Override
     public IptablesPO getSelfClientIp(IptablesPO iptablesPO) {
         IptablesPO returnIptablesPO=getFriendIpAddrManager.getSelfClientIp(iptablesPO);
-        log.info("返回的对象为{}",returnIptablesPO.toString());
+        if(ObjectUtil.isNotNull(returnIptablesPO)) {
+            log.info("返回的对象为{}", returnIptablesPO.toString());
+        }else{
+            log.info("请求用户自己没在线");
+        }
         return returnIptablesPO;
     }
 }

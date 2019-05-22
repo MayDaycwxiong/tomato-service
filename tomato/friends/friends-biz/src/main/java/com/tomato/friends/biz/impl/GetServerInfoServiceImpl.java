@@ -48,6 +48,7 @@ public class GetServerInfoServiceImpl implements GetServerInfoService {
         }
         if(serverInfoPOList.size()==1){
             serverAddDTO.setServerAddPO(serverInfoPOList.get(0));
+            serverAddDTO.setFlage("0");
             log.info("当前只有一台服务器，获取成功");
             return;
         }
@@ -59,14 +60,17 @@ public class GetServerInfoServiceImpl implements GetServerInfoService {
     * @date        2019/5/13 15:06
     */
     private void random(ServerAddDTO serverAddDTO,List<ServerAddPO> serverInfoPOList) {
-        StringBuffer numberChar=new StringBuffer();
-        for(int i=0;i<serverInfoPOList.size();i++){
-            numberChar.append(i+"");
-        }
-        log.info("用于随机的原始数字:{}",numberChar.toString());
+//        StringBuffer numberChar=new StringBuffer();
+//        for(int i=0;i<serverInfoPOList.size();i++){
+//            numberChar.append(i+"");
+//        }
+//        log.info("用于随机的原始数字:{}",numberChar.toString());
+//        Long seed=System.currentTimeMillis();
+//        Random random=new Random(seed);
+//        int index=Integer.parseInt(numberChar.toString().charAt(random.nextInt(numberChar.length()))+"");
         Long seed=System.currentTimeMillis();
         Random random=new Random(seed);
-        int index=Integer.parseInt(numberChar.toString().charAt(random.nextInt(numberChar.length()))+"");
+        int index=random.nextInt(serverInfoPOList.size());
         serverAddDTO.setServerAddPO(serverInfoPOList.get(index));
         serverAddDTO.setFlage("0");
         log.info("获取成功，随机返回的服务器为:{}",serverAddDTO.getServerAddPO().toString());
