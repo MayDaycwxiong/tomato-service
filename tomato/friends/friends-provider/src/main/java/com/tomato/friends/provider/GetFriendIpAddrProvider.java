@@ -24,6 +24,8 @@ public class GetFriendIpAddrProvider implements GetFriendIpAddrApi {
 
     @Override
     public IptablesDTO getFriendIpAddr(IptablesPO iptablesPO) {
-        return getFriendIpAddrService.getFriendIpAddr(iptablesPO);
+//        return getFriendIpAddrService.getFriendIpAddr(iptablesPO);
+        return getFriendIpAddrService.getFriendIpSimple(iptablesPO);
     }
+
 }

@@ -30,6 +30,16 @@ public class GetFriendIpAddrManager {
         return iptablesPOMapper.selectFinalObject(clientIp,serverIp,friendId);
     }
 
+    /**
+     * 这里与service对应的修改
+     */
+    public IptablesPO getFriendIpSimple(IptablesPO iptablesPO){
+        log.info("查询对象为{}",iptablesPO.toString());
+        String friendId=iptablesPO.getUserid();
+        log.info("查询的friendId={}",friendId);
+        return iptablesPOMapper.selectFriendIpSimple(friendId);
+    }
+
     public IptablesPO getSelfClientIp(IptablesPO iptablesPO) {
         log.info("查询对象为{}",iptablesPO.toString());
         String serverIp=iptablesPO.getServerip();

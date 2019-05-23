@@ -78,4 +78,17 @@ public class GetFriendIpAddrServiceImpl implements GetFriendIpAddrService {
         }
         return returnIptablesPO;
     }
+
+    /**
+    * 方法实现说明    这里在部署好的环境下测试发现，不在同一个网关下，在同一个校园网里，如一个20153818，一个20153822账号可以点对点连接通讯
+    * @author      cuiwx
+    * @date        2019/5/23 16:17
+    */
+    @Override
+    public IptablesDTO getFriendIpSimple(IptablesPO iptablesPO) {
+        IptablesDTO iptablesDTO=new IptablesDTO();
+        IptablesPO returnIptablesPO=getFriendIpAddrManager.getFriendIpSimple(iptablesPO);
+        detailData(returnIptablesPO,iptablesDTO,iptablesPO);
+        return iptablesDTO;
+    }
 }

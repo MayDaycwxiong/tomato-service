@@ -32,4 +32,12 @@ public interface IptablesPOMapper {
      * @date 2019/5/16 19:50
      */
     IptablesPO selectFinalObject(@Param("clientip") String clientIp, @Param("serverip") String serverIp, @Param("friendid") String friendId);
+
+    /**
+     * 方法实现说明    后来在部署环境中发现，可以不在同一个网关下的好友可以直接点对点进行通讯
+     *
+     * @author cuiwx
+     * @date 2019/5/23 16:09
+     */
+    IptablesPO selectFriendIpSimple(@Param("friendid") String friendiId);
 }

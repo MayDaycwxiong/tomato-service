@@ -28,4 +28,12 @@ public interface GetFriendIpAddrService {
      * @date 2019/5/16 19:57
      */
     IptablesPO getSelfClientIp(IptablesPO iptablesPO);
+
+    /**
+     * 方法实现说明    直接获得用户的IP
+     *
+     * @author cuiwx
+     * @date 2019/5/23 16:17
+     */
+    IptablesDTO getFriendIpSimple(IptablesPO iptablesPO);
 }
