@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tomato.friends.netty.nettymain.dto.IptablesDTO;
 import com.tomato.friends.netty.nettymain.dto.IptablesPO;
-import com.tomato.friends.netty.nettymain.service.IptablesService;
 import com.tomato.friends.netty.nettymain.service.MysqlIptablesService;
 import com.tomato.friends.netty.nettymain.service.impl.MysqlIptablesServiceImpl;
 import io.netty.channel.Channel;
